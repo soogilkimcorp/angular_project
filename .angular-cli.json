@@ -21,7 +21,11 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/bubbles-chart/bubbles-chart.full.js",
+        "../node_modules/chart.js/dist/Chart.bundle.js",
+        "../node_modules/chart.js/samples/utils.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

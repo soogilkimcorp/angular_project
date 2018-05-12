@@ -1,0 +1,34 @@
+<!-- <form #fn="ngForm" (ngSubmit)="onSubmit(fn.value)">
+    <div class="">
+        <input type="text" id="skuinput" name="sku" placeholder="SKU" ngModel />
+    </div>
+    <div class="">
+        <input type="password" id="skupwinput" name="skupw" placeholder="SKU PASSWORD" ngModel />
+    </div>
+    <div class="">
+        <button type="submit" name="button">Submit</button>
+    </div>
+</form> -->
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="">
+        <input type="text" id="skuinput" name="sku" placeholder="SKU" [formControl]="myForm.controls['sku']" />
+        <div class="" *ngIf="myForm.controls['sku'].hasError('invalidSku')">
+            <span [style.color]="'#f00'">Sku is invalid</span>
+        </div>
+    </div>
+    <div class="">
+        <input type="password" id="skupwinput" name="skupw" placeholder="SKU PASSWORD" [formControl]="myForm.controls['skupw']" />
+        <div class="" *ngIf="myForm.controls['skupw'].hasError('invalidSkupw')">
+            <span [style.color]="'#f00'">Skupw is invalid</span>
+        </div>
+    </div>
+    <div class="">
+        <button type="submit" name="button">Submit</button>
+    </div>
+</form>
+
+<div class="" *ngIf="!myForm.valid">
+    Form is invalid
+</div>
+{{sku.value}} : {{skupw.value}}
